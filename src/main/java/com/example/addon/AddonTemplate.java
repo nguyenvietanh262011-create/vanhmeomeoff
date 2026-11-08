@@ -1,16 +1,47 @@
 package com.example.addon;
 
+import com.example.addon.commands.CommandExample;
+import com.example.addon.hud.HudExample;
+import com.example.addon.modules.*;
+import com.mojang.logging.LogUtils;
 import meteordevelopment.meteorclient.addons.MeteorAddon;
+import meteordevelopment.meteorclient.commands.Commands;
+import meteordevelopment.meteorclient.systems.hud.Hud;
+import meteordevelopment.meteorclient.systems.hud.HudGroup;
 import meteordevelopment.meteorclient.systems.modules.Category;
 import meteordevelopment.meteorclient.systems.modules.Modules;
-import com.example.addon.modules.Miner;
+import org.slf4j.Logger;
 
 public class AddonTemplate extends MeteorAddon {
+    public static final Logger LOG = LogUtils.getLogger();
+    public static final Category CATEGORY = new Category("Example");
+    public static final Category SAOPLUM = new Category("SAOPLUM");
     public static final Category VANHMEOMEO = new Category("vanhmeomeo");
+    public static final HudGroup HUD_GROUP = new HudGroup("vanhmeomeo");
 
     @Override
     public void onInitialize() {
+        LOG.info("Initializing vanhmeomeo Addon");
+
+        // Đăng ký toàn bộ module
         Modules.get().add(new Miner());
+        Modules.get().add(new AutoEat());
+        Modules.get().add(new AutoShop());
+        Modules.get().add(new ExpRepair());
+        Modules.get().add(new ModuleExample());
+
+        // Đăng ký commands
+        Commands.add(new CommandExample());
+
+        // Đăng ký HUD
+        Hud.get().register(HudExample.INFO);
+    }
+
+    @Override
+    public void onRegisterCategories() {
+        Modules.registerCategory(CATEGORY);
+        Modules.registerCategory(SAOPLUM);
+        Modules.registerCategory(VANHMEOMEO);
     }
 
     @Override
