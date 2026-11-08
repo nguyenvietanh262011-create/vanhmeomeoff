@@ -23,11 +23,10 @@ public class AddonTemplate extends MeteorAddon {
     public void onInitialize() {
         LOG.info("Initializing vanhmeomeo Addon");
 
-        // Đăng ký toàn bộ module
+        // Đăng ký modules
         Modules.get().add(new Miner());
         Modules.get().add(new AutoEat());
         Modules.get().add(new AutoShop());
-        Modules.get().add(new ExpRepair());
         Modules.get().add(new ModuleExample());
 
         // Đăng ký commands
