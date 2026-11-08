@@ -20,12 +20,7 @@ public class ExpRepair extends Module {
         .min(5).max(200)
         .build()
     );
-
-    public ExpRepair() {
-        super(AddonTemplate.SADPLUM, "Exp Repair", "Bao ve cong cu khi do ben thap.");
-    }
-
-    @EventHandler
+  @EventHandler
     private void onTick(TickEvent.Pre event) {
         if (mc.player == null) return;
 
