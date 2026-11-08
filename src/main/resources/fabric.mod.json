@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "vanhmeomeo",
+  "version": "${version}",
+  "name": "vanhmeomeo",
+  "description": "Addon dao khoi cho Meteor Client.",
+  "authors": [
+    "vanhmeomeo"
+  ],
+  "contact": {},
+  "icon": "assets/template/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "meteor": [
+      "com.example.addon.AddonTemplate"
+    ]
+  },
+  "mixins": [
+    "addon-template.mixins.json"
+  ],
+  "custom": {
+    "meteor-client:color": "225,25,25"
+  },
+  "depends": {
+    "java": ">=21",
+    "minecraft": "${mc_version}",
+    "meteor-client": "*"
+  }
+}
+
+s": {
+    "java": ">=21",
+    "minecraft": ["${mc_version}"],
+    "meteor-client": "*"
+  }
+}
